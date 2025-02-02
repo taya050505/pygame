@@ -5,6 +5,7 @@ import random
 
 pygame.mixer.init()
 
+
 SFX_ATTACK_1 = data_manager.open_sfx('sound/sfx/player/attack1.ogg')
 SFX_ATTACK_2 = data_manager.open_sfx('sound/sfx/player/attack2.ogg')
 SFX_ATTACK_3 = data_manager.open_sfx('sound/sfx/player/attack3.ogg')
@@ -74,8 +75,7 @@ class Player():
         self.attack_timer_count = 0
         self.attack_timer_limit = 30
         self.attack_duration = 12
-        self.sword = Sword((self.rect.x + self.rect.width, self.rect.y, self.rect.width, self.rect.height), colors,
-                           self.attack_duration)
+        self.sword = Sword((self.rect.x + self.rect.width, self.rect.y, self.rect.width, self.rect.height), colors, self.attack_duration)
 
         self.health = 5
         self.max_health = 5
@@ -595,10 +595,8 @@ class Stat():
         self.width = int(screen_size[0] // 5)
         self.height = int(screen_size[1] // 60)
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
-        self.no_health_picture = pygame.transform.scale(
-            data_manager.open_image("model/map/textures/icons/empty_knight_icon.png"), (45, 32))
-        self.health_picture = pygame.transform.scale(
-            data_manager.open_image("model/map/textures/icons/knight_icon.png"), (45, 32))
+        self.no_health_picture = pygame.transform.scale(data_manager.open_image("model/map/textures/icons/empty_knight_icon.png"), (45, 32))
+        self.health_picture = pygame.transform.scale(data_manager.open_image("model/map/textures/icons/knight_icon.png"), (45, 32))
 
         self.line_corrigate = (self.health_picture.get_width()) / 2
         self.color = colors
